@@ -1,0 +1,19 @@
+<div class="container-fluid bg-2 text-center">
+	<h3>Others who added <%= contact.first_name %></h3>
+	<table class="table table-hover">
+		<thead>
+			<th>Name</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+			<% user.contact.each do |contact| %>
+			<tr>
+				<td><a href="/users/<%= contact.user.id %>"><%= contact.user.first_name %></a></td>
+				<td><%= contact.count %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<button class="btn"><a class="btn" href="<%= users_path %>">Dashboard</a></button>
+	<button class="btn"><a class="btn" href="/logout" data_method="delete">Logout</a></button>
+</div>

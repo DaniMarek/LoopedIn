@@ -1,0 +1,30 @@
+<div class="container-fluid bg-2 text-center">
+	<h1>Hello, <%= user.first_name %>!</h1>
+	<button class="btn"><a class="btn" href="<%= users_path %>">All Users</a></button>
+	<button class="btn"><a class="btn" href="/logout" data_method="delete">Logout</a></button>
+
+	<h3>Here is your profile description:</h3>
+	<h4><%= user.description  %></h4>
+
+	<h3>Your Professional Network:</h3>
+	<h4><%= contact.user_id %></h4>
+
+	<h3>Invitations:</h3>
+	<p>The following people asked you to be in their network:</p>
+
+	<table class="table table-hover">
+		<thead>
+			<th>Name</th>
+			<th>Action</th>
+		</thead>
+		<tbody>
+			<% @record.each do |x| %>
+			<tr>
+				<td><%= x.user.first_name %></td>
+				<td><a href="">Accept Invite</a><a href="">Ignore</a></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+</div>
